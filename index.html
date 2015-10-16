@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<!-- <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"/> -->
+		<script type="text/javascript" src="form-handler.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		
+		<title>Web Analytics Tracking</title>
+	</head>
+	<body>
+		<div id="main">
+			<header>
+				<a href="index.html"><img src="Rise_Logo.png"></a>
+				<h1>Analytics Site Audit Analysis Form</h1>
+			</header>
+			
+			<div id="formDiv">
+				<form id="trackingForm"> 
+					<!-- onsubmit="displayOutput();" method="post"> -->
+					<!-- "   action="submittedForm.php" -->
+
+					<div id="websiteURL">
+						<!-- <p> -->
+							<label for="websiteURL">Website url: </label>
+						<!-- </p> -->
+						<input type="url" id="websiteURL">
+
+						<hr>
+					</div>
+
+					<div id="question1">
+						<p><label>Does the website have:</label><p>
+						<input type="radio" name="trackingType" value="Google Analytics" id="GoogleAnalytics" required><label for="GoogleAnalytics">Google Analytics</label><br>
+						<input type="radio" name="trackingType" value="Adobe Analytics" id="AdobeAnalytics" required><label for="AdobeAnalytics">Adobe Analytics</label><br>
+						<input type="radio" name="trackingType" value="Google Analytics and Adobe Analytics" id="bothTrackingTypes" required><label for="bothTrackingTypes">Both</label><br>
+						<input type="radio" name="trackingType" value="no tracking tool" id="noTrackingTypes" required><label for="noTrackingTypes">None</label><br>
+						<input type="radio" name="trackingType" value="other" id="otherTrackingType" required><label for="otherTrackingType">Other </label><input type="text" name="otherTrackingType" id="otherTrackingTypeInput"><br>
+						
+						
+
+						<hr>
+					</div>
+
+					<div id="question2">
+						<p>What is the main account/property ID?<p>
+						<table>
+							<tr id="gaIDRow">
+								<td><label for="gaID">Google Analytics:</label></td>
+								<td><input type="text" name="mainID" placeholder="xxxxxx" id="gaID"><td>
+							</tr>
+							<tr id="aaIDRow">
+								<td><label for="aaID">Adobe Analytics:</label></td>
+								<td><input type="text" name="mainID" placeholder="xxxxxx" id="aaID"><td>
+							</tr>
+						</table>
+							<label for="notes">Notes:</label><br>
+							<textarea rows="7" id="notes"></textarea>
+
+							<label for="accountRecs">Recommendations:</label>
+							<textarea rows="7" id="accountRecs"></textarea>
+
+						<hr>
+					</div>
+
+					<div id="question3">
+						<p><label>Does the website have classic GA or UA?</label></p>
+						<input type="radio" name="GAType" value="classic" id="classic"><label for="classic">GA</label><br>
+						<input type="radio" name="GAType" value="UA" id="UA"><label for="UA">UA</label><br>
+						<!-- <p id="UABenefits">benefits of UA</p> -->
+
+						<hr>
+
+					</div>
+
+					<div id="question4">
+						<p><label for="importantTC">Any other important tracking code?</label><p>
+						<textarea rows="7" id="importantTC"></textarea><br>
+
+						<hr>
+					</div>
+
+					
+
+					<div id="question5">
+
+						<p><label>Does the website have a GTM or DTM?</label></p>
+						<input type="radio" name="tagManager" value="GTM" id="GTM" required><label for="GTM">GTM</label><br>
+						<input type="radio" name="tagManager" value="DTM" id="DTM" required><label for="DTM">DTM</label><br>
+						<input type="radio" name="tagManager" value="no tag manager" id="noTagManager" required><label for="noTagManager">None</label><br>
+						<input type="radio" name="tagManager" value="other" id="otherTagManager" required><label for="otherTagManager">Other </label><input type="text" name="otherTagManager" id="otherTagManagerInput"><br>
+						
+
+						<!-- <p id="benefits">Benefits of GTM/DTM:</p> -->
+
+						<hr>
+					</div>
+
+					<div id="question6">
+						<p><label>Are there any testing and optimization or VOC efforts going on?</label></p>
+						<input type="radio" name="efforts" value="TnO" id="TnO"><label for="TnO">Testing & Optimization</label><br>
+						<input type="radio" name="efforts" value="VOC" id="VOC"><label for="VOC">VOC</label><br>
+						<input type="radio" name="efforts" value="both" id="bothEfforts"><label for="bothEfforts">both</label><br>
+						<input type="radio" name="efforts" value="none" id="noEfforts"><label for="noEfforts">none</label><br>
+
+						<!-- <hr>
+					</div>
+
+					<div id="question7"> -->
+						<div id="hasTnO">
+							<p><label for="TnOplatform">What T&O platform is the client using?</label></p>
+							<input type="text" name="TnOplatform" placeholder="" id="TnOplatform"><br>
+						</div>
+
+						<div id="hasVOC">
+							<p><label for="VOCplatform">What VOC platform is the client using?</label></p>
+							<input type="text" name="VOCplatform" placeholder="" id="VOCplatform"><br>
+						</div>
+
+						<!-- <p><label for="recommendations">Recommendation:</label></p> -->
+
+						<hr>
+					</div>
+
+					<div id="question8">
+						<p><label>Should we recommend call tracking? Is it logically possible?</label></p>
+						<input type="radio" name="callTracking" value="yes" id="yesCallTracking"><label for="yesCallTracking">Yes</label><br>
+						<input type="radio" name="callTracking" value="no" id="noCallTracking"><label for="noCallTracking">No</label><br>
+
+						<hr>
+					</div>
+
+					<div id="question9">
+						<h4>Page</h4>
+						<label for="loadTime">Average page load time: </label><input type="number" step="0.1" min="0" name="loadTime" id="loadTime">
+						
+						<h4>Status Codes</h4>
+						<table>
+							<tr>
+								<td><label for="status301">301</label></td>
+								<td><input type="number" min="0" name="status301" id="status301"></td>
+							</tr>
+							<tr>
+								<td><label for="status302">302</label></td>
+								<td><input type="number" min="0" name="status302" id="status302"></td>
+							</tr>
+							<tr>
+								<td><label for="status404">404</label></td>
+								<td><input type="number" min="0" name="status404" id="status404"></td>
+							</tr>
+							<tr>
+								<td><label for="status500">500</label></td>
+								<td><input type="number" min="0" name="status500" id="status500"></td>
+							</tr>
+						</table>
+
+						<hr>
+					</div>
+
+					<div id="question10">
+
+						<p><label>Do we have GA access?</label></p>
+						<input type="radio" name="access" value="yes" id="yesAccess"><label for="yesAccess">Yes</label><br>
+						<input type="radio" name="access" value="no" id="noAccess"><label for="noAccess">No</label><br>
+
+						<!-- if yes -->
+						<div id="hasAccess">
+							<p><label for="accountSetup">Account Setup</label></p>
+							<textarea rows="7" name="accountSetup" id="accountSetup"></textarea>
+
+							<hr>
+
+							<p><label>Are there any goals configured?</label></p>
+							<input type="radio" name="goals" value="yes" id="yesGoals"><label for="yesGoals">Yes</label><br>
+							<input type="radio" name="goals" value="no" id="noGoals"><label for="noGoals">No</label>
+
+							<p name="hasGoals">Current Goals:</p>
+							<textarea rows="7" placeholder="Type a brief description of the goals." name="hasGoals" id="goalDescription"></textarea>
+							<p>Recommended Goals:</p>
+							<textarea rows="7" placeholder="Type a brief decsription of goal recommendations." id="goalRecs"></textarea>
+							
+							<hr>
+
+							<p><label>Are there any filters configured?</label></p>
+							<input type="radio" name="filters" value="yes" id="yesFilters"><label for="yesFilters">Yes</label><br>
+							<input type="radio" name="filters" value="no" id="noFilters"><label for="noFilters">No</label>
+
+							<p name="hasFilters">Current Filters:</p>
+							<textarea rows="7" placeholder="Type a brief description of the filter configurations." name="hasFilters" id="filterDescription"></textarea>
+							<p>Recommended filters:</p>
+							<textarea rows="7" placeholder="Type a brief description of filter recommendations." id="filterRecs"></textarea>
+
+							<hr>
+
+							<p><label>Are there any events being tracked?</label></p>
+							<input type="radio" name="events" value="yes" id="yesEvents"><label for="yesEvents">Yes</label><br>
+							<input type="radio" name="events" value="no" id="noEvents"><label for="noEvents">No</label>
+
+							<p name="hasEvents">Current Events:</p>
+							<textarea rows="7" placeholder="Type list of events that are being tracked." name="hasEvents" id="eventDescription"></textarea>
+							<p>Recommended Events:</p>
+							<textarea rows="7" placeholder="Type a brief decsription of event recommendations."id="eventRecs"></textarea>
+						</div>
+
+						<hr>
+					</div>
+
+
+
+
+					<div id="submitDiv" >
+						<button type="button" name="submit" value="SUBMIT" id="submitBtn" onclick="submitForm();">SUBMIT</button>
+					</div>
+				</form>
+ 				
+				<div id="output">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
