@@ -24,23 +24,6 @@ function submitForm() {
 		tagManager = $("[name^=tagManager]:checked").val();
 	};
 
-
-	// results.push({gaID:$("[id^=gaID]:input").val(),
-	// 			  aaID:$("[id^=aaID]:input").val(),
-	// 			  GAType:$("[name^=GAType]:checked").val(),
-	// 			  notes:$("[id^=notes]:input").val(),
-	// 			  efforts:$("[name^=efforts]:checked").val(),
-	// 			  callTracking:$("[name^=callTracking]:checked").val(),
-	// 			  importantTC:$("[id^=importantTC]:input").val(),
-	// 			  TnOplatform:$("[id^=TnOplatform]:input").val(),
-	// 			  VOCplatform:$("[id^=VOCplatform]:input").val(),
-	// 			  loadTime:$("[id^=loadTime]:input").val(),
-	// 			  status301:$("[id^=status301]:input").val(),
-	// 			  status302:$("[id^=status302]:input").val(),
-	// 			  status404:$("[id^=status404]:input").val(),
-	// 			  status500:$("[id^=status500]:input").val(),
-	// 			});
-				
 				
 	websiteURL = $("[id^=websiteURL]:input").val();
 	gaID = $("#gaID:input").val();
@@ -67,7 +50,6 @@ function submitForm() {
 	eventDescription = $("#eventDescription:input").val()
 	eventRecs = $("#eventRecs:input").val()
 
-	// var textareas = [notes, importantTC, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs];
 
 	// $(textareas).each( function( index ) {
 	// 	if textareas[index].length > 0 {
@@ -77,10 +59,6 @@ function submitForm() {
 				
 				
 	var results = [trackingType, tagManager, gaID, aaID, GAType, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, accountRecs, output, hasGAaccess, websiteURL];
-
-
-
-
 
 	document.getElementById("output").innerHTML = "<br>";	
 	$(results).each( function( index ) {
@@ -155,86 +133,84 @@ function submitForm() {
 
 	document.getElementById("output").innerHTML += "<h3>GA Account Structure</h3>";
 	if (hasGAaccess == "yes") {
+		var block = [];
+		document.getElementById("output").innerHTML += "<blockquote class='block'></blockquote>";
 
 		// GOALS
-		document.getElementById("output").innerHTML += "<h4>Existing Goals</h4>";
+		block.push("<h4>Existing Goals</h4>");
 		if (goalDescription.length > 0) {
 			goalDescription = goalDescription.split("\n");
-			var list = [];
 
-			document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
-
+			block.push("<ul class='lists'>");
 			$(goalDescription).each( function( index ) {
-				list.push("<li>" + goalDescription[index] + "</li>");
+				block.push("<li>" + goalDescription[index] + "</li>");
 			});
-			$('.lists').append(list.join(''));
+			block.push("</ul>");
 		}
 		else {
-			document.getElementById("output").innerHTML += "<p>No events are set up.</p>";
+			block.push("<p>No events are set up.</p>");
 		};
 
 		if (goalRecs.length > 0) {
 			goalRecs = goalRecs.split("\n");
-			var list = [];
 
-			document.getElementById("output").innerHTML += "<h4>Recommended Goals</h4>";
-			document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
+			block.push("<h4>Recommended Goals</h4>", "<ul>");
 			$(goalRecs).each( function( index ) {
-				list.push("<li>" + goalRecs[index] + "</li>");
+				block.push("<li>" + goalRecs[index] + "</li>");
 			});
-			$('.lists').append(list.join(''));
+			block.push("</ul>");
 		};
 
 		// FILTERS
-		document.getElementById("output").innerHTML += "<h4>Existing Filters</h4>";
+		block.push("<h4>Existing Filters</h4>");
 			if (filterDescription.length > 0) {
 				filterDescription = filterDescription.split("\n");
-				var list = [];
 
-				document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
+				block.push("<ul>");
 				$(filterDescription).each( function( index ) {
-					list.push("<li>" + filterDescription[index] + "</li>");
+					block.push("<li>" + filterDescription[index] + "</li>");
 				});
-				$('.lists').append(list.join(''));
+				block.push("</ul>");
 			}
 			else {
-				document.getElementById("output").innerHTML += "<p>No filters are set up.</p>";
+				block.push("<p>No filters are set up.</p>");
 			};
 		if (filterRecs.length > 0) {
 			filterRecs = filterRecs.split("\n");
 			var list = [];
 
-			document.getElementById("output").innerHTML += "<h4>Recommended Filters</h4>";
-			document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
+			block.push("<h4>Recommended Filters</h4>", "<ul>");
 			$(filterRecs).each( function( index ) {
-				list.push("<li>" + filterRecs[index] + "</li>");
+				block.push("<li>" + filterRecs[index] + "</li>");
 			});
-			$('.lists').append(list.join(''));
+			block.push("</ul>");
 		};
 
 		// EVENTS
-		document.getElementById("output").innerHTML += "<h4>Existing Events</h4>";
+		block.push("<h4>Existing Events</h4>");
 		if (eventDescription.length > 0) {
 			eventDescription = eventDescription.split("\n");
 
-			document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
+			block.push("<ul>");
 			$(eventDescription).each( function( index ) {
-				document.getElementById("output").innerHTML += "<li>" + eventDescription[index] + "</li>";
+				block.push("<li>" + eventDescription[index] + "</li>");
 			});
-			$('.lists').append(list.join(''));
+			block.push("</ul>");
 		}
 		else {
-			document.getElementById("output").innerHTML += "<p>No events are set up.</p>";
+			block.push("<p>No events are set up.</p>");
 		};
 		if (eventRecs.length > 0) {
 			eventRecs = eventRecs.split("\n");
-			document.getElementById("output").innerHTML += "<h4>Recommended Events</h4>";
-			document.getElementById("output").innerHTML += "<ul class='lists'></ul>";
+
+			block.push("<h4>Recommended Events</h4>", "<ul class='lists'>")
 			$(eventRecs).each( function( index ) {
-				document.getElementById("output").innerHTML += "<li>" + eventRecs[index] + "</li>";
+				block.push("<li>" + eventRecs[index] + "</li>");
 			});
-			$('.lists').append(list.join(''));
+			block.push("</ul>");
 		};
+
+		$('.block').append(block.join(''));
 	}
 
 	else {

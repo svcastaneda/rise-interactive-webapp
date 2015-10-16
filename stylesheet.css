@@ -1,6 +1,7 @@
 body {
 	background-color: #0B4B85;
 	font-family: Verdana;
+	font-size: 0.95em;
 	margin: 3% 0;
 }
 
@@ -37,8 +38,12 @@ h1 {
 	color: #E97E1E;
 }
 
+h3 {
+	text-decoration: underline;
+}
+
 #output h4, h3  {
-	margin-top: 10px;
+	margin-top: 13px;
 }
 
 h4, h3 {
