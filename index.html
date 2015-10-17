@@ -4,8 +4,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<!-- <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"/> -->
-		<script type="text/javascript" src="form-handler.js"></script>
+		<script type="text/javascript" src="form-handler2.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 		
 		<title>Web Analytics Tracking</title>
@@ -18,9 +17,7 @@
 			</header>
 			
 			<div id="formDiv">
-				<form id="trackingForm"> 
-					<!-- onsubmit="displayOutput();" method="post"> -->
-					<!-- "   action="submittedForm.php" -->
+				<form id="trackingForm">
 
 					<div id="websiteURL">
 						<!-- <p> -->
@@ -69,7 +66,6 @@
 						<p><label>Does the website have classic GA or UA?</label></p>
 						<input type="radio" name="GAType" value="classic" id="classic"><label for="classic">GA</label><br>
 						<input type="radio" name="GAType" value="UA" id="UA"><label for="UA">UA</label><br>
-						<!-- <p id="UABenefits">benefits of UA</p> -->
 
 						<hr>
 
@@ -91,9 +87,6 @@
 						<input type="radio" name="tagManager" value="DTM" id="DTM" required><label for="DTM">DTM</label><br>
 						<input type="radio" name="tagManager" value="no tag manager" id="noTagManager" required><label for="noTagManager">None</label><br>
 						<input type="radio" name="tagManager" value="other" id="otherTagManager" required><label for="otherTagManager">Other </label><input type="text" name="otherTagManager" id="otherTagManagerInput"><br>
-						
-
-						<!-- <p id="benefits">Benefits of GTM/DTM:</p> -->
 
 						<hr>
 					</div>
@@ -105,10 +98,6 @@
 						<input type="radio" name="efforts" value="both" id="bothEfforts"><label for="bothEfforts">both</label><br>
 						<input type="radio" name="efforts" value="none" id="noEfforts"><label for="noEfforts">none</label><br>
 
-						<!-- <hr>
-					</div>
-
-					<div id="question7"> -->
 						<div id="hasTnO">
 							<p><label for="TnOplatform">What T&O platform is the client using?</label></p>
 							<input type="text" name="TnOplatform" placeholder="" id="TnOplatform"><br>
@@ -118,8 +107,6 @@
 							<p><label for="VOCplatform">What VOC platform is the client using?</label></p>
 							<input type="text" name="VOCplatform" placeholder="" id="VOCplatform"><br>
 						</div>
-
-						<!-- <p><label for="recommendations">Recommendation:</label></p> -->
 
 						<hr>
 					</div>

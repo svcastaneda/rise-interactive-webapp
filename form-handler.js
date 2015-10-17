@@ -70,13 +70,19 @@ function submitForm() {
 	//******************************//
 	//*********** OUTPUT ***********//
 	//******************************//
+	
+	var output = [];
 
-	document.getElementById("output").innerHTML += "<h4 class='websiteURL'>Web report for: </h4><a href='" + websiteURL + "' target='_blank'>" + websiteURL + "</a>";
+	// document.getElementById("output").innerHTML += "<h4 class='websiteURL'>Web report for: </h4><a href='" + websiteURL + "' target='_blank'>" + websiteURL + "</a>";
+	output.push("<h4 class='websiteURL'>Web report for: </h4><a href='" + websiteURL + "' target='_blank'>" + websiteURL + "</a>");
 
 	// GA ACCOUNT STRUCTURE
 	if (trackingType == "Google Analytics" | trackingType == "Google Analytics and Adobe Analytics") {
 		document.getElementById("output").innerHTML += "<h4>Current GA account structure setup</h4>";
 		document.getElementById("output").innerHTML += "The GA property " + gaID + " is the primary property.";
+		
+		output.push("<h4>Current GA account structure setup</h4>", "The GA property " + gaID + " is the primary property.");
+		
 		if (notes.length > 0) {
 			notes = notes.split("\n");
 			var list = [];
@@ -131,10 +137,9 @@ function submitForm() {
 	}
 	
 
-	document.getElementById("output").innerHTML += "<h3>GA Account Structure</h3>";
-	if (hasGAaccess == "yes") {
-		var block = [];
-		document.getElementById("output").innerHTML += "<blockquote class='block'></blockquote>";
+	document.getElementById("output").innerHTML += "<h3>GA Account Structure</h3><blockquote class='block'></blockquote>";
+	var block = [];
+	if (hasGAaccess == "yes") {	
 
 		// GOALS
 		block.push("<h4>Existing Goals</h4>");
@@ -208,51 +213,52 @@ function submitForm() {
 				block.push("<li>" + eventRecs[index] + "</li>");
 			});
 			block.push("</ul>");
-		};
-
-		$('.block').append(block.join(''));
+		};	
 	}
 
 	else {
-		document.getElementById("output").innerHTML += "<p>We don't have access to the Google Analytics account. We need to have access in order to be able to analyze its structure.</p>"
+		block.push("<p>We don't have access to the Google Analytics account. We need to have access in order to be able to analyze its structure.</p>");
 	};
-
+	$('.block').append(block.join(''));
 
 	// STATUS CODES
+	var statuses = []
 	if (status301>0 | status302>0 | status404>0 | status500>0) {
-		document.getElementById("output").innerHTML += "<h4>Status Codes</h4>";
+		statuses.push("<h4>Status Codes</h4>");
+		document.getElementById("output").innerHTML += "<div id='statuses'></div>";
 	};
 	
 	if (status301>0) {
 		if (status301 == 1) {
-			document.getElementById("output").innerHTML += "<p>1 page had 301 as its status code. This means that there is 1 page that has been </p>";
+			statuses.push("<p>1 page had 301 as its status code. This means that there is 1 page that has been </p>");
 		}
 		else {
-			document.getElementById("output").innerHTML += "<p>" + status301 + " pages had 301 as its status code. This means that there are " + status301 + " pages that </p>";
+			statuses.push("<p>" + status301 + " pages had 301 as its status code. This means that there are " + status301 + " pages that </p>");
 		};
 	};
 	if (status302>0) {
 		if (status302 == 1) {
-			document.getElementById("output").innerHTML += "<p>1 page had 302 as its status code. This means that there is 1 page with a temporary page redirect. This slashes the tracking code, which means that Google Analytics loses session tracking.</p>";
+			statuses.push("<p>1 page had 302 as its status code. This means that there is 1 page with a temporary page redirect. This slashes the tracking code, which means that Google Analytics loses session tracking.</p>");
 		}
 		else{
-			document.getElementById("output").innerHTML += "<p>" + status302 + " pages had 302 as its status code. This means that there are " + status302 + " pages with temporary page redirects. This slashes the tracking code, which means that Google Analytics loses session tracking.</p>";
+			statuses.push("<p>" + status302 + " pages had 302 as its status code. This means that there are " + status302 + " pages with temporary page redirects. This slashes the tracking code, which means that Google Analytics loses session tracking.</p>");
 		};
 	};
 	if (status404>0) {
 		if (status404 == 1) {
-			document.getElementById("output").innerHTML += "<p>1 page had 404 as its status code. This means that there is 1 page that was not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</p>";
+			statuses.push("<p>1 page had 404 as its status code. This means that there is 1 page that was not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</p>");
 		}
 		else {
-			document.getElementById("output").innerHTML += "<p>" + status404 + " pages had 404 as its status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</p>";
+			statuses.push("<p>" + status404 + " pages had 404 as its status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</p>");
 		};
 	};
 	if (status500>0) {
 		if (status500 == 1) {
-			document.getElementById("output").innerHTML += "<p>1 page had 500 as its status code. This means that there is 1 page that caused an internal server error.</p>";
+			statuses.push("<p>1 page had 500 as its status code. This means that there is 1 page that caused an internal server error.</p>");
 		}
 		else {
-			document.getElementById("output").innerHTML += "<p>" + status500 + " pages had 500 as its status code. This means that there are " + status500 + " pages that caused internal server errors.</p>";
+			statuses.push("<p>" + status500 + " pages had 500 as its status code. This means that there are " + status500 + " pages that caused internal server errors.</p>");
 		};
 	};
+	$('#statuses').append(statuses.join(''));
 };
