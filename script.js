@@ -1,29 +1,29 @@
 $(document).ready(function() {
 
-	$("#question2,#question3,#question4,#gaID,#aaID,#UABenefits,#benefits,#hasTnO,#hasVOC,#callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
+	$("#question2,#question3,#question4,.gaID,.aaID,#UABenefits,#benefits,#hasTnO,#hasVOC,#callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
 
 
 	// questions 1-4
 	$("[name^=trackingType]").change(function() {
 		if (this.id == "GoogleAnalytics") {
-			$("#question2, #question3, #question4, #gaID").fadeIn("slow");
-			$("#aaID").hide("slow");
+			$("#question2, #question3, #question4, .gaID").fadeIn("slow");
+			$(".aaID").hide("slow");
 
 			var x = document.getElementById("aaID");
 			$(x).val("");
 		}
 		else if (this.id == "AdobeAnalytics") {
-			$("#question2, #question4, #aaID").fadeIn("slow");
-			$("#question3, #gaID").hide("slow");
+			$("#question2, #question4, .aaID").fadeIn("slow");
+			$("#question3, .gaID").hide("slow");
 			
 			var x = document.getElementById("gaID");
 			$(x).val("");
 		}
 		else if (this.id == "bothTrackingTypes") {
-			$("#question2, #question3, #question4, #gaID, #aaID]").fadeIn("slow");
+			$("#question2, #question3, #question4, .gaID, .aaID").fadeIn("slow");
 		}
 		else {
-			$("#question2, #question3, #question4, #gaID, #aaID").fadeOut("slow");
+			$("#question2, #question3, #question4, .gaID, .aaID").fadeOut("slow");
 
 			var x = document.getElementById("gaID");
 			$(x).val("");
