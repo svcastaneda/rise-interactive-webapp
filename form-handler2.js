@@ -1,5 +1,5 @@
 function submitForm() {
-	var trackingType, tagManager, gaID, aaID, GAType, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, websiteURL, accountRecs;
+	var trackingType, tagManager, gaID, aaID, GAType, ecommerce, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, websiteURL, accountRecs;
 	
 
 	if ($("[name^=trackingType]:checked").val() == "other") {
@@ -22,6 +22,7 @@ function submitForm() {
 	gaID = $("#gaID:input").val();
 	aaID = $("#aaID:input").val();
 	GAType = $("[name^=GAType]:checked").val();
+	ecommerce = $("[name^=ecommerce]:checked").val();
 	notes = $("#notes:input").val();
 	accountRecs = $("#accountRecs:input").val();
 	efforts = $("[name^=efforts]:checked").val();
@@ -86,7 +87,11 @@ function submitForm() {
 
 	// GOOGLE ANALYTICS TYPE
 	if (GAType == "classic") {
-		output.push("<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgradsing to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>");
+		output.push("<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>");
+
+		if (ecommerce == "true") {
+			output.push("<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>");
+		};
 	};
 
 	if (tagManager == 'no tag manager' && (trackingType == 'Google Analytics' | trackingType == 'Google Analytics and Adobe Analytics')) {
@@ -107,7 +112,7 @@ function submitForm() {
 	// PAGE LOAD TIME
 	output.push("<h4>Page Load Time</h4><p>The average page load time is " + loadTime + " seconds.</p>");
 	if (loadTime > 3) {
-		output.push("<p>This is not ideal for good visitor experience. The website should be optimized for decreasing average page load time.</p>");
+		output.push("<p>This is not ideal for good visitor experience. The website should be optimized for decreasing average page load time to 3 seconds or less.</p>");
 	}
 	
 	$('#output').append(output.join(''));
@@ -143,6 +148,7 @@ function submitForm() {
 			});
 			block.push("</ul>");
 		};
+		block.push("<hr>");
 
 		// FILTERS
 		block.push("<h4>Existing Filters</h4>");
@@ -168,6 +174,7 @@ function submitForm() {
 			});
 			block.push("</ul>");
 		};
+		block.push("<hr>");
 
 		// EVENTS
 		block.push("<h4>Existing Events</h4>");
@@ -209,7 +216,7 @@ function submitForm() {
 				statuses.push("<li>1 page had 301 as its status code. This means that there is 1 page that has been </li>");
 			}
 			else {
-				statuses.push("<li>" + status301 + " pages had 301 as its status code. This means that there are " + status301 + " pages that </li>");
+				statuses.push("<li>" + status301 + " pages had 301 as its status code. This means that there are " + status301 + " pages that has been moved to a new permanent URI.</li>");
 			};
 		};
 		if (status302>0) {

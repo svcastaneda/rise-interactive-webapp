@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("#question2,#question3,#question4,.gaID,.aaID,#UABenefits,#benefits,#hasTnO,#hasVOC,#callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
+	$("#question2,#question3,#question4,.gaID,.aaID, #ecommerce, #benefits,#hasTnO,#hasVOC,#callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
 
 
 	// questions 1-4
@@ -42,10 +42,10 @@ $(document).ready(function() {
 
 	$("[name^=GAType]").change(function() {
 		if (this.value == "classic") {
-			$("#UABenefit").fadeIn("slow");
+			$("#ecommerce").fadeIn("slow");
 		}
 		else {
-			$("#UABenefits").fadeOut("slow");
+			$("#ecommerce").fadeOut("slow");
 		};
 	});
 
