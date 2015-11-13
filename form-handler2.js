@@ -1,5 +1,5 @@
 function submitForm() {
-	var trackingType, tagManager, gaID, aaID, GAType, ecommerce, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, websiteURL, accountRecs;
+	var trackingType, tagManager, gaID, aaID, GAType, enhancedEcommerce, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goals, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, websiteURL, accountRecs;
 	
 
 	if ($("[name^=trackingType]:checked").val() == "other") {
@@ -22,14 +22,15 @@ function submitForm() {
 	gaID = $("#gaID:input").val();
 	aaID = $("#aaID:input").val();
 	GAType = $("[name^=GAType]:checked").val();
-	ecommerce = $("[name^=ecommerce]:checked").val();
+	enhancedEcommerce = $("[name^=enhancedEcommerce]:checked").val();
 	notes = $("#notes:input").val();
 	accountRecs = $("#accountRecs:input").val();
 	efforts = $("[name^=efforts]:checked").val();
 	callTracking = $("[name^=callTracking]:checked").val();
-	importantTC = $("#importantTC:input").val().replace(/\r\n|\r|\n/g,"<br />");
+	importantTC = $("#importantTC:input").val().replace(/\r\n|\r|\n/g,"<br>");
 	TnOplatform = $("#TnOplatform:input").val();
 	VOCplatform = $("#VOCplatform:input").val();
+	isVOCpossible = $("[name^=isVOCpossible]:checked").val();
 	loadTime = $("#loadTime:input").val();
 	status301 = $("#status301:input").val();
 	status302 = $("#status302:input").val();
@@ -37,15 +38,19 @@ function submitForm() {
 	status500 = $("#status500:input").val();
 	hasGAaccess = $("[name^=access]:checked").val();
 	accountSetup = $("#accountSetup:input").val()
+	goals = $("[name^=goals]:checked").val();
 	goalDescription = $("#goalDescription:input").val()
 	goalRecs = $("#goalRecs:input").val()
+	filters = $("[name^=filters]:checked").val();
 	filterDescription = $("#filterDescription:input").val()
 	filterRecs = $("#filterRecs:input").val()
+	events = $("[name^=events]:checked").val();
 	eventDescription = $("#eventDescription:input").val()
 	eventRecs = $("#eventRecs:input").val()
 				
-				
-	var results = [trackingType, tagManager, gaID, aaID, GAType, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, accountRecs, output, hasGAaccess, websiteURL];
+	
+	// To check if input is being passed in
+	var results = [trackingType, tagManager, gaID, aaID, GAType, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, isVOCpossible, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, accountRecs, output, hasGAaccess, websiteURL];
 
 	document.getElementById("output").innerHTML = "<br>";	
 	$(results).each( function( index ) {
@@ -53,10 +58,17 @@ function submitForm() {
 	});
 
 	
-
-	//******************************//
-	//*********** OUTPUT ***********//
-	//******************************//
+	////////////////////////////////////////////////////////////////////////////////
+	//																			  //
+	//	@@@@@@@@@@  @@@	   @@@  @@@@@@@@@@@  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  //
+	//  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  //
+	//  @@@    @@@  @@@    @@@      @@@      @@@    @@@  @@@    @@@      @@@	  //
+	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  //
+	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  //
+	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  //
+	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  //
+	//																			  //
+	////////////////////////////////////////////////////////////////////////////////
 	var output = [];
 	
 	output.push("<h4 class='websiteURL'>Web report for: </h4><a href='" + websiteURL + "' target='_blank'>" + websiteURL + "</a>");
@@ -84,24 +96,58 @@ function submitForm() {
 		};
 	};
 
+	// ADOBE ANALYTICS STRUCTURE
+	if (trackingType == "Adobe Analytics" | trackingType == "Google Analytics and Adobe Analytics") {
+		output.push("<h4>Current Adobe Analytics account structure setup</h4>", "The primary Adobe Analytics property ID is " + aaID + ".");
+		
+		if (adobeNotes.length > 0) {
+			adobeNotes = adobeNotes.split("\n");
+
+			output.push("<ul>");
+			$(adobeNotes).each( function( index ) {
+				output.push("<li>" + adobeNotes[index] + "</li>");
+			});
+			output.push("</ul>");
+		};
+		if (adobeAccountRecs.length > 0) {
+			adobeAccountRecs = adobeAccountRecs.split("\n");
+
+			output.push("<p>Recommendations:</p>", "<ul>");
+			$(adobeAccountRecs).each( function( index ) {
+				output.push("<li>" + adobeAccountRecs[index] + "</li>");
+			});
+			output.push("</ul>");
+		};
+	};
+
 
 	// GOOGLE ANALYTICS TYPE
 	if (GAType == "classic") {
-		output.push("<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>");
-
-		if (ecommerce == "true") {
-			output.push("<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>");
-		};
+		output.push("<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>");		
 	};
 
 	if (tagManager == 'no tag manager' && (trackingType == 'Google Analytics' | trackingType == 'Google Analytics and Adobe Analytics')) {
 		output.push("<h4>Google Tag Manager</h4><p>The website does not show existence of any tag management system. There is an opportunity to implement Universal Analytics through Google Tag Manager.</p><p>There are several benefits of using Google Tag Manager we can take advantage of:</p><ul><li>Allows you to quickly and easily add, delete and update a wide range of analytics, remarketing and 3rd party tags</li><li>Data is dependable since error checking is easy and accurate</li><li>Compatible with mobile apps</li><li>Allows multi-account support and user permissions</li></ul>");
 	};
 
-	// TESTING AND OPTIMIZATION
-	if (efforts == "VOC" | efforts == "none") {
-		output.push("<h4>Testing and Optimization</h4><p>The website does not have any Conversion Rate Optimization tools. CRO has several benefits:</p>");
-		output.push("<ul><li>Understanding the client's site visitors' behavior quantitatively and qualitatively in order to develop hypotheses for the website experience and test these experiences prior to investing the development time and resources in hardcoding.</li><li>Optimize any webpage against the client's KPIs (engagement ecommerce, lead generation).</li><li>It is crucial to optimize existing traffic to the site. Oftentimes, clients focus their budgets on paid media to push more traffic to the site, but conversion rate remains stagnant. Optimizing the site for existing traffic followed by optimizing traffic from new media efforts is necessary to achieve optimal conversion rates.</li></ul>");
+	if (enhancedEcommerce == "yes") {
+		output.push("<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>");
+	};
+
+
+	var TnOblurb = "<h4>Testing and Optimization</h4><p>The website does not have any Conversion Rate Optimization tools. CRO has several benefits:</p><ul><li>Understanding the client's site visitors' behavior quantitatively and qualitatively in order to develop hypotheses for the website experience and test these experiences prior to investing the development time and resources in hardcoding.</li><li>Optimize any webpage against the client's KPIs (engagement ecommerce, lead generation).</li><li>It is crucial to optimize existing traffic to the site. Oftentimes, clients focus their budgets on paid media to push more traffic to the site, but conversion rate remains stagnant. Optimizing the site for existing traffic followed by optimizing traffic from new media efforts is necessary to achieve optimal conversion rates.</li></ul>";
+	var VOCblurb = "<h4>Voice of Customer</h4><p>The website does not have any Voice of Customer tools. VOC has several benefits:</p><ul><li>Allows you to understand visitors' perceptions of your website, brand, and competitors via quantitative and qualitative survey questions.</li><li>Gives you insight into visitor obstacles and areas of opportunity for your marketing efforts and your company at large.</li></ul>";
+
+	// TESTING AND OPTIMIZATION and VOC
+	// if (efforts == "VOC" | efforts == "none") {
+	if (efforts == "none") {
+		output.push(TnOblurb, VOCblurb);
+	}
+	else if (efforts == "VOC") {
+		output.push(TnOblurb);
+	}
+	else if (efforts == "TnO" & isVOCpossible == "yes") {
+		output.push(VOCblurb);
 	};
 	
 	// CALLTRACKING
@@ -118,15 +164,13 @@ function submitForm() {
 	$('#output').append(output.join(''));
 
 
-	// document.getElementById("output").innerHTML += "<h3>GA Account Structure</h3><blockquote class='block'></blockquote>";
 	var block = [];
-	block.push("<h3>GA Account Structure</h3><blockquote>");
 	
+	block.push("<h3>Current Web Analytics Tracking Setup</h3><blockquote>");
 	if (hasGAaccess == "yes") {	
-
 		// GOALS
-		block.push("<h4>Existing Goals</h4>");
-		if (goalDescription.length > 0) {
+		block.push("<h4>Current Goals</h4>");
+		if (goals == "yes" & goalDescription.length > 0) {
 			goalDescription = goalDescription.split("\n");
 
 			block.push("<ul>");
@@ -151,8 +195,8 @@ function submitForm() {
 		block.push("<hr>");
 
 		// FILTERS
-		block.push("<h4>Existing Filters</h4>");
-			if (filterDescription.length > 0) {
+		block.push("<h4>Current Filters</h4>");
+			if (filters == "yes" & filterDescription.length > 0) {
 				filterDescription = filterDescription.split("\n");
 
 				block.push("<ul>");
@@ -177,8 +221,8 @@ function submitForm() {
 		block.push("<hr>");
 
 		// EVENTS
-		block.push("<h4>Existing Events</h4>");
-		if (eventDescription.length > 0) {
+		block.push("<h4>Current Events</h4>");
+		if (events == "yes" & eventDescription.length > 0) {
 			eventDescription = eventDescription.split("\n");
 
 			block.push("<ul>");
@@ -213,10 +257,10 @@ function submitForm() {
 	
 		if (status301>0) {
 			if (status301 == 1) {
-				statuses.push("<li>1 page had 301 as its status code. This means that there is 1 page that has been </li>");
+				statuses.push("<li>1 page had 301 as its status code. This means that there is 1 page that has been assigned a new permanent URL. The browser tries to load the page again with an alternate URL. This slashes the tracking code, which means that Google Analytics is no longer able to track the session.</li>");
 			}
 			else {
-				statuses.push("<li>" + status301 + " pages had 301 as its status code. This means that there are " + status301 + " pages that has been moved to a new permanent URI.</li>");
+				statuses.push("<li>" + status301 + " pages had 301 as their status code. This means that there are " + status301 + " pages that have been moved to a new permanent URL. The browser tries to load the page again with an alternate URL. This slashes the tracking code, which means that Google Analytics is no longer able to track the session.</li>");
 			};
 		};
 		if (status302>0) {
@@ -224,7 +268,7 @@ function submitForm() {
 				statuses.push("<li>1 page had 302 as its status code. This means that there is 1 page with a temporary page redirect. This slashes the tracking code, which means that Google Analytics loses session tracking.</li>");
 			}
 			else{
-				statuses.push("<li>" + status302 + " pages had 302 as its status code. This means that there are " + status302 + " pages with temporary page redirects. This slashes the tracking code, which means that Google Analytics loses session tracking.</li>");
+				statuses.push("<li>" + status302 + " pages had 302 as their status code. This means that there are " + status302 + " pages with temporary page redirects. This slashes the tracking code, which means that Google Analytics loses session tracking.</li>");
 			};
 		};
 		if (status404>0) {
@@ -232,7 +276,8 @@ function submitForm() {
 				statuses.push("<li>1 page had 404 as its status code. This means that there is 1 page that was not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
 			}
 			else {
-				statuses.push("<li>" + status404 + " pages had 404 as its status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
+				// statuses.push("<li>" + status404 + " pages had 404 as their status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
+				statuses.push("<li>" + status404 + " pages had 404 as their status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
 			};
 		};
 		if (status500>0) {
@@ -240,7 +285,7 @@ function submitForm() {
 				statuses.push("<li>1 page had 500 as its status code. This means that there is 1 page that caused an internal server error.</li>");
 			}
 			else {
-				statuses.push("<li>" + status500 + " pages had 500 as its status code. This means that there are " + status500 + " pages that caused internal server errors.</li>");
+				statuses.push("<li>" + status500 + " pages had 500 as their status code. This means that there are " + status500 + " pages that caused internal server errors.</li>");
 			};
 		};
 		
