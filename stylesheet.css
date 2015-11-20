@@ -64,8 +64,12 @@ hr {
     padding: 0;
 }
 
-#hasAccess hr, #output hr {
-	border-top: 2px dotted #ccc;
+.gaStuff hr, .adobeStuff hr {
+	border-color: #aaa;
+}
+
+#hasGoogleAccess hr, #output hr, #hasAdobeAccess hr {
+	border-top: 2px dotted #AAA99B;
 }
 
 #submitDiv {
@@ -80,6 +84,10 @@ button[type='button'] {
 	padding: 1%;
 	-webkit-border-radius: 15px;
 	color: white;
+}
+
+button[type='button']:focus {
+	outline: none;
 }
 
 textarea {
@@ -100,4 +108,32 @@ a:hover {
 
 ul {
 	margin-top: 1%;
+}
+
+span {
+	display: block;
+}
+
+fieldset {
+	margin: 3% auto;
+	width: 94.5%;
+	background-color: #f8d7b9;
+}
+
+legend {
+	font-size: 150%;
+	background-color: #E97E1E;
+	font-weight: bold;
+	color: white;
+	padding: .5%;
+	box-shadow: 3px 3px 7px black;
+	width: 105%;
+	text-align: center;
+	margin: 0 auto 1% auto;
+}
+
+blockquote {
+	border-left: 2px solid grey;
+	padding-left: 1%;
+	margin-left: 1%;
 }
