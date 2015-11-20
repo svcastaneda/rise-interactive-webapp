@@ -1,61 +1,42 @@
 $(document).ready(function() {
 
-	$("#question2,#question3,#question4,.gaID,.aaID, #ecommerce, #benefits,#hasTnO,#hasVOC,#callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
+	$(".gaStuff,#gaAccountInfo,#adobeAccountInfo,#question3,#question4,#enhancedEcommerce, #benefits,#hasTnO,#hasVOC, #isVOCpossible, #callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
 
 
 	// questions 1-4
 	$("[name^=trackingType]").change(function() {
-		if (this.id == "GoogleAnalytics") {
-			$("#question2, #question3, #question4, .gaID").fadeIn("slow");
-			$(".aaID").hide("slow");
+		if (this.id != "noTrackingTypes") {
+			$(".gaStuff, #question4, [name^=tagManager]").fadeIn("slow");
 
-			var x = document.getElementById("aaID");
-			$(x).val("");
-		}
-		else if (this.id == "AdobeAnalytics") {
-			$("#question2, #question4, .aaID").fadeIn("slow");
-			$("#question3, .gaID").hide("slow");
-			
-			var x = document.getElementById("gaID");
-			$(x).val("");
-		}
-		else if (this.id == "bothTrackingTypes") {
-			$("#question2, #question3, #question4, .gaID, .aaID").fadeIn("slow");
+			if (this.id == "GoogleAnalytics") {
+				$(".gaStuff").fadeIn("slow");
+				$("#adobeAccountInfo").hide("slow");
+			}
+			else if (this.id == "AdobeAnalytics") {
+				$("#adobeAccountInfo").fadeIn("slow");
+				$(".gaStuff").hide("slow");
+			}
+			else if (this.id == "bothTrackingTypes") {
+				$(".gaStuff, #adobeAccountInfo").fadeIn("slow");
+			};
 		}
 		else {
-			$("#question2, #question3, #question4, .gaID, .aaID").fadeOut("slow");
-
-			var x = document.getElementById("gaID");
-			$(x).val("");
-			var y = document.getElementById("aaID");
-			$(y).val("");
-			var z = document.getElementById("notes");
-			$(z).val("");
+			$(".gaStuff, #adobeAccountInfo").fadeOut("slow");
 		};
 	});
 	
 	$("#otherTrackingTypeInput").focus(function() {
-		// $("[name^=trackingType]:focus").val("other");
+		$("[name^=trackingType]:focus").val("other");
 		$("#otherTrackingType").attr('checked',true);
 	});
 
 
-	$("[name^=GAType]").change(function() {
-		if (this.value == "classic") {
-			$("#ecommerce").fadeIn("slow");
+	$("[name^=ecommerce]").change(function() {
+		if (this.value == "true") {
+			$("#enhancedEcommerce").fadeIn("slow");
 		}
 		else {
-			$("#ecommerce").fadeOut("slow");
-		};
-	});
-
-	// question 5
-	$("[name^=tagManager]").change(function() {
-		if (this.value == "none") {
-			$("#benefits").fadeIn("slow");
-		}
-		else {
-			$("#benefits").fadeOut("slow");
+			$("#enhancedEcommerce").fadeOut("slow");
 		};
 	});
 	
@@ -68,27 +49,19 @@ $(document).ready(function() {
 		if (this.value == "TnO") {
 			$("#hasTnO").fadeIn("slow");
 			$("#hasVOC").hide("slow");
-
-			var x = document.getElementById("VOCplatform");
-			$(x).val("");
+			$("#isVOCpossible").fadeIn("slow");
 		}
 		else if (this.value == "VOC") {
 			$("#hasVOC").fadeIn("slow");
 			$("#hasTnO").hide("slow");
-
-			var x = document.getElementById("TnOplatform");
-			$(x).val("");
+			$("#isVOCpossible").hide("slow");
 		}
 		else if (this.value == "both") {
 			$("#hasTnO, #hasVOC").fadeIn("slow");
+			$("#isVOCpossible").hide("slow");
 		}
 		else {
-			$("#hasTnO, #hasVOC").fadeOut("slow");
-
-			var x = document.getElementById("TnOplatform");
-			$(x).val("");
-			var y = document.getElementById("VOCplatform");
-			$(y).val("");
+			$("#hasTnO, #hasVOC, #isVOCpossible").fadeOut("slow");
 		};
 	});
 
@@ -108,10 +81,6 @@ $(document).ready(function() {
 		}
 		else {
 			$("#hasAccess").fadeOut("slow");
-			// document.getElementById("hasAccess").getElementsByTagName($("textarea")).val("");
-
-			var x = document.getElementById("hasAccess").getElementsByTagName("textarea");
-			$(x).each(function(index){$(x[index]).val("");});
 		};
 	});
 
@@ -121,7 +90,6 @@ $(document).ready(function() {
 		}
 		else {
 			$("[name^=hasGoals]").fadeOut("slow");
-			$("#goalDescription").val("");
 		};
 	});
 
@@ -131,7 +99,6 @@ $(document).ready(function() {
 		}
 		else {
 			$("[name^=hasFilters]").fadeOut("slow");
-			$("#filterDescription").val("");
 		};
 	});
 
@@ -141,12 +108,7 @@ $(document).ready(function() {
 		}
 		else {
 			$("[name^=hasEvents]").fadeOut("slow");
-			$("#eventDescription").val("");
 		};
-	});
-
-	$("#submitBtn").click(function(){
-    		$("p").html("[name^=trackingType]".value);
 	});
 
 });

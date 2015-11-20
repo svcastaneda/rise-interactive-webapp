@@ -64,7 +64,7 @@ hr {
     padding: 0;
 }
 
-#hasAccess hr {
+#hasAccess hr, #output hr {
 	border-top: 2px dotted #ccc;
 }
 
