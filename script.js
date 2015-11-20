@@ -1,33 +1,36 @@
 $(document).ready(function() {
 
-	$(".gaStuff,#gaAccountInfo,#adobeAccountInfo,#question3,#question4,#enhancedEcommerce, #benefits,#hasTnO,#hasVOC, #isVOCpossible, #callTrackingBenefits,#hasAccess,[name^=hasGoals],[name^=hasFilters],[name^=hasEvents]").hide();
+	$(".gaStuff, #gaAccountInfo, .adobeStuff, #hasAdobeAccess, .tagManager, .GTM, .DTM, #enhancedEcommerce, #benefits, #hasTnO, #hasVOC, #isVOCpossible, #callTrackingBenefits, #hasGoogleAccess, [name^=GoogleHasGoals], [name^=GoogleHasFilters], [name^=GoogleHasEvents], [name^=AdobeHasGoals], [name^=AdobeHasFilters], [name^=AdobeHasEvents]").hide();
 
 
-	// questions 1-4
 	$("[name^=trackingType]").change(function() {
-		if (this.id != "noTrackingTypes") {
-			$(".gaStuff, #question4, [name^=tagManager]").fadeIn("slow");
+		if (this.id == "noTrackingTypes" | this.id == "otherTrackingType") {
+			$(".gaStuff, .adobeStuff, .tagManager").fadeOut("slow");
+		}
+		else if (this.id == "otherTrackingType") {
+			$(".tagManager").fadeIn("slow");
+		}
+		else if (this.id != "noTrackingTypes" || this.id != "otherTrackingType") {
+			$(".tagManager").fadeIn("slow");
 
 			if (this.id == "GoogleAnalytics") {
-				$(".gaStuff").fadeIn("slow");
-				$("#adobeAccountInfo").hide("slow");
+				$(".gaStuff, .GTM").fadeIn("slow");
+				$(".adobeStuff, .DTM").hide("slow");
 			}
 			else if (this.id == "AdobeAnalytics") {
-				$("#adobeAccountInfo").fadeIn("slow");
-				$(".gaStuff").hide("slow");
+				$(".adobeStuff, .DTM").fadeIn("slow");
+				$(".gaStuff, .GTM").hide("slow");
 			}
 			else if (this.id == "bothTrackingTypes") {
-				$(".gaStuff, #adobeAccountInfo").fadeIn("slow");
+				$(".gaStuff, .adobeStuff, .GTM, .DTM").fadeIn("slow");
 			};
-		}
-		else {
-			$(".gaStuff, #adobeAccountInfo").fadeOut("slow");
 		};
 	});
 	
 	$("#otherTrackingTypeInput").focus(function() {
 		$("[name^=trackingType]:focus").val("other");
 		$("#otherTrackingType").attr('checked',true);
+		$(".gaStuff, .adobeStuff").fadeOut("slow");
 	});
 
 
@@ -39,12 +42,7 @@ $(document).ready(function() {
 			$("#enhancedEcommerce").fadeOut("slow");
 		};
 	});
-	
-	$("#otherTagManagerInput").focus(function() {
-		$("#otherTagManager").attr('checked', 'checked');
-	});
 
-	// question 6
 	$("[name^=efforts]").change(function() {
 		if (this.value == "TnO") {
 			$("#hasTnO").fadeIn("slow");
@@ -61,11 +59,11 @@ $(document).ready(function() {
 			$("#isVOCpossible").hide("slow");
 		}
 		else {
-			$("#hasTnO, #hasVOC, #isVOCpossible").fadeOut("slow");
+			$("#isVOCpossible").fadeIn("slow");
+			$("#hasTnO, #hasVOC").fadeOut("slow");
 		};
 	});
 
-	// question 8
 	$("[name^=callTracking]").change(function() {
 		if (this.value == "yes") {
 			$("#callTrackingBenefits").fadeIn("slow");
@@ -75,39 +73,76 @@ $(document).ready(function() {
 		};
 	});
 
-	$("[name^=access]").change(function() {
+	$("[name^=GoogleAccess]").change(function() {
 		if (this.value == "yes") {
-			$("#hasAccess").fadeIn("slow");
+			$("#hasGoogleAccess").fadeIn("slow");
 		}
 		else {
-			$("#hasAccess").fadeOut("slow");
+			$("#hasGoogleAccess").fadeOut("slow");
 		};
 	});
 
-	$("[name^=goals]").change(function() {
+	$("[name^=GoogleGoals]").change(function() {
 		if (this.value == "yes") {
-			$("[name^=hasGoals]").fadeIn("slow");
+			$("[name^=GoogleHasGoals]").fadeIn("slow");
 		}
 		else {
-			$("[name^=hasGoals]").fadeOut("slow");
+			$("[name^=GoogleHasGoals]").fadeOut("slow");
 		};
 	});
 
-	$("[name^=filters]").change(function() {
+	$("[name^=GoogleFilters]").change(function() {
 		if (this.value == "yes") {
-			$("[name^=hasFilters]").fadeIn("slow");
+			$("[name^=GoogleHasFilters]").fadeIn("slow");
 		}
 		else {
-			$("[name^=hasFilters]").fadeOut("slow");
+			$("[name^=GoogleHasFilters]").fadeOut("slow");
 		};
 	});
 
-	$("[name^=events]").change(function() {
+	$("[name^=GoogleEvents]").change(function() {
 		if (this.value == "yes") {
-			$("[name^=hasEvents]").fadeIn("slow");
+			$("[name^=GoogleHasEvents]").fadeIn("slow");
 		}
 		else {
-			$("[name^=hasEvents]").fadeOut("slow");
+			$("[name^=GoogleHasEvents]").fadeOut("slow");
+		};
+	});
+
+
+	$("[name^=AdobeAccess]").change(function() {
+		if (this.value == "yes") {
+			$("#hasAdobeAccess").fadeIn("slow");
+		}
+		else {
+			$("#hasAdobeAccess").fadeOut("slow");
+		};
+	});
+
+	$("[name^=AdobeGoals]").change(function() {
+		if (this.value == "yes") {
+			$("[name^=AdobeHasGoals]").fadeIn("slow");
+		}
+		else {
+			$("[name^=AdobeHasGoals]").fadeOut("slow");
+		};
+	});
+
+	$("[name^=AdobeFilters]").change(function() {
+		if (this.value == "yes") {
+			$("[name^=AdobeHasFilters]").fadeIn("slow");
+		}
+		else {
+			$("[name^=AdobeHasFilters]").fadeOut("slow");
+		};
+	});
+
+	$("[name^=AdobeEvents]").change(function() {
+		if (this.value == "yes") {
+			$("[name^=AdobeHasEvents]").fadeIn("slow");
+		}
+		else {
+			$("[name^=AdobeHasEvents]").fadeOut("slow");
 		};
 	});
 
