@@ -5,27 +5,23 @@ if other web trends:
 	list name in output
 	ask should we recommend GA or Adobe?
 
-if ecommerce website:
-	ask if Enhanced Ecommerce is a viable option
-	if yes:
-		benefits of EE
-		benefits of UA (if classic GA)
-
 
 Adobe Analytics:
-- main account/property ID
-	- notes
-	- recommendations
 - DTM
 	if none:
 		should we recommend GA or Adobe or other?
 		GA: benefits of GA
 		AA: benefits of AA
 		other: name of recommended web trends thing
-- Do we have AA access?
 
+Add admin feature
+- Add everyone on Analytics team
+- Allows people to access old reports
+- Allows people to delete old reports
 
-
-Bing project (by end of Friday):
-	- Ghurka
-	- Pandora
+Add page with old reports
+- groups by website or company
+- orders by creation date
+- edit feature
+	- repopulates form with information
+	- 
