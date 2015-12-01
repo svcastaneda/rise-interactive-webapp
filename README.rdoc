@@ -1,28 +1,30 @@
-== README
+= README
+-----------------------------------------------------------------------------
+=== Important files:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- *app/assets/views/pages/index.html.erb:* HTML file for the index page where the form lives.
+- *app/assets/stylesheets/stylesheet.scss:* CSS file for styling pages.
+- *app/assets/javascripts/script.hs:* JavaScript file that handles the animation (showing/hiding) for the HTML form.
+- *app/javascripts/form-handler.js:* JavaScript file that grabs all of the user input and creates the custom report at the bottom of the page.
+- *app/assets/controllers/pages_controller.rb:* Ruby file that renders the HTML pages to the browser.
 
-Things you may want to cover:
+------------------------------------------------------------------------------
+=== How to make changes:
 
-* Ruby version
+- If you haven't already, fork this repo to your GitHub account and clone it to your computer.
+- Do a <tt>git pull</tt> command to make sure that your branch is up-to-date. 
+- Checkout a new feature branch with the command <tt>git checkout -b BRANCH_NAME</tt>.
+- Make the desired changes.
 
-* System dependencies
+------------------------------------------------------------------------------
+=== How to push changes:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Stage the files for commitment with <tt>git add FILE_NAME</tt>.
+  * You can stage multiple files at once with <tt>git add FILE_NAME_1 FILE_NAME_2</tt>
+  * You can stage all files at once with <tt>git add .</tt>
+- Commit the files with <tt>git commit -m "YOUR MESSAGE"</tt>.
+- Push the changes to Github with <tt>git push origin BRANCH_NAME</tt>.
+- Create a new pull request in GitHub to merge the feature branch with the master branch.
+- Once the two branches are merged, checkout to the master branch and do a <tt>git pull</tt> request.
+- Push the changes to Heroku with <tt>git push heroku master</tt>.
+- Check {the website}[https://riseinteractive-analyticsteam.herokuapp.com/] to make sure that the changes were deployed.
