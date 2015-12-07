@@ -1,0 +1,135 @@
+IDs:
+	main
+	formDiv
+	trackingForm
+	websiteURL
+	question1
+	GoogleAnalytics
+	AdobeAnalytics
+	bothTrackingTypes
+	noTrackingTypes
+	otherTrackingType
+	otherTrackingTypeInput
+	gaID
+	-notes --> GoogleNotes
+	-accountRecs --> GoogleAccountRecs
+	classic
+	UA
+	yesEC
+	noEC
+	enhancedEcommerce
+	eeIsPossible
+	eeNotPossible
+	-yesAccess --> yesGoogleAccess
+	-noAccess --> noGoogleAccess
+	-hasAccess --> hasGoogleAccess
+	-accountSetup --> GoogleAccountSetup
+	-yesGoals --> GoogleYesGoals
+	-noGoals --> GoogleNoGoals
+	-goalDescription --> GoogleGoalDescription
+	-goalRecs --> GoogleGoalRecs
+	yesFilters --> GoogleYesFilters
+	noFilters --> GoogleNoFilters
+	filterDescription --> GoogleFilterDescription
+	filterRecs --> GoogleFilterRecs
+	yesEvents --> GoogleYesEvents
+	noEvents --> GoogleNoEvents
+	eventDescription --> GoogleEventDescription
+	eventRecs --> GoogleEventRecs
+	aaID
+	adobeNotes
+	adobeAccountRecs
+	yesAdobeAccess
+	noAdobeAccess
+	hasAdobeAccess
+	adobeAccountSetup
+	adobeYesGoals
+	adobeNoGoals
+	adobeGoalDescription
+	adobeGoalRecs
+	adobeYesFilters
+	adobeNoFilters
+	adobeFilterDescription
+	adobeFilterRecs
+	adobeYesEvents
+	adobeNoEvents
+	adobeEventDescription
+	adobeEventRecs
+	question4
+	importantTC
+	question5
+	GTM
+	DTM
+	noTagManager
+	otherTagManager
+	otherTagManagerInput
+	question6
+	TnO
+	VOC
+	bothEfforts
+	noEfforts
+	hasTnO
+	TnOplatform
+	isVOCpossible
+	isPossible
+	notPossible
+	hasVOC
+	VOCplatform
+	question8
+	yesCallTracking
+	noCallTracking
+	question9
+	loadTime
+	status301
+	status302
+	status404
+	status500
+	submitDiv
+	submitBtn
+	output
+
+Classes:
+	websiteURL
+	gaStuff
+	gaID
+	aaID
+	adobeStuff
+
+Names:
+	trackingType
+	otherTrackingType
+	mainID --> mainGoogleID
+	GAType
+	ecommerce
+	enhancedEcommerce
+	isVOCpossible
+	access --> GoogleAccess
+	accountSetup --> GoogleAccountSetup
+	goals --> GoogleGoals
+	hasGoals -->GoogleHasGoals
+	filters --> GoogleFilters
+	hasFilters
+	events
+	hasEvents
+	mainAdobeID
+	adobeAccess
+	adobeAccountSetup
+	adobeGoals
+	adobeHasGoals
+	adobeFitlers
+	adobeHasFilters
+	adobeEvents
+	adobeHasEvents
+	tagManager
+	otherTagManager
+	efforts
+	TnOplatform
+	isVOCpossible
+	VOCplatform
+	callTracking
+	loadTime
+	status301
+	status302
+	status404
+	status500
+	submit
