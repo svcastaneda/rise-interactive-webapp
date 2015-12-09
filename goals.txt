@@ -13,15 +13,3 @@ Adobe Analytics:
 		GA: benefits of GA
 		AA: benefits of AA
 		other: name of recommended web trends thing
-
-Add admin feature
-- Add everyone on Analytics team
-- Allows people to access old reports
-- Allows people to delete old reports
-
-Add page with old reports
-- groups by website or company
-- orders by creation date
-- edit feature
-	- repopulates form with information
-	- 
