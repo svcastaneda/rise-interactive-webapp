@@ -60,40 +60,34 @@ function submitForm() {
 	AdobeEventDescription = $("#AdobeEventDescription:input").val();
 	GoogleEventRecs = $("#GoogleEventRecs:input").val();
 	AdobeEventRecs = $("#AdobeEventRecs:input").val();
-				
-	
-	// To check if input is being passed in
-	var results = [websiteURL, trackingType, tagManager, gaID, aaID, GAType, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, isVOCpossible, loadTime, status301, status302, status404, status500, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, accountRecs, output, hasGAaccess];
-	var google = [gaID, GAType, notes, efforts, hasGAaccess, accountSetup, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, accountRecs];
-	var Adobe = [aaID];
-	var other = [websiteURL, trackingType, tagManager, callTracking, importantTC, TnOplatform, VOCplatform, isVOCpossible, loadTime, status301, status302, status404, status500,];
 
-	//	@@ 		@@ 				   @@
-	//	@@ 		@@ 				   @@
+
+	//	@@ 			@@ 				   			 @@
+	//	@@ 			@@								 @@
 	//	@@@@@@@ @@ @@  @@  @@ @@@  @@@@@@@ @@@@@@@
 	//	@@ 	 @@ @@ @@  @@  @@@  @@ @@ 	@@ @@
 	//	@@   @@ @@ @@  @@  @@ 	   @@   @@ @@@@@@@
-	//	@@   @@ @@ @@  @@  @@  	   @@   @@ 		@@
+	//	@@   @@ @@ @@  @@  @@  	   @@   @@ 			@@
 	//	@@@@@@@ @@ @@@@@@  @@ 	   @@@@@@@ @@@@@@@
 
-	var gtmBenefitsBlurb = "<h4>Google Tag Manager</h4><p>The website does not show existence of any tag management system. There is an opportunity to implement Universal Analytics through Google Tag Manager.</p><p>There are several benefits of using Google Tag Manager we can take advantage of:</p><ul><li>Allows you to quickly and easily add, delete and update a wide range of analytics, remarketing and 3rd party tags</li><li>Data is dependable since error checking is easy and accurate</li><li>Compatible with mobile apps</li><li>Allows multi-account support and user permissions</li></ul>"
-	var uaBenefitsBlurb = "<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>"
-	var enhancedEcommerceBlurb = "<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>"
+	var gtmBenefitsBlurb = "<h4>Google Tag Manager</h4><p>The website does not show existence of any tag management system. There is an opportunity to implement Universal Analytics through Google Tag Manager.</p><p>There are several benefits of using Google Tag Manager we can take advantage of:</p><ul><li>Allows you to quickly and easily add, delete and update a wide range of analytics, remarketing and 3rd party tags</li><li>Data is dependable since error checking is easy and accurate</li><li>Compatible with mobile apps</li><li>Allows multi-account support and user permissions</li></ul>";
+	var uaBenefitsBlurb = "<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>";
+	var enhancedEcommerceBlurb = "<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>";
 	var TnOblurb = "<h4>Testing and Optimization</h4><p>The website does not have any Conversion Rate Optimization (CRO) tools. CRO has several benefits:</p><ul><li>Understanding the client's site visitors' behavior quantitatively and qualitatively in order to develop hypotheses for the website experience and test these experiences prior to investing the development time and resources in hardcoding.</li><li>Optimize any webpage against the client's KPIs (engagement ecommerce, lead generation).</li><li>It is crucial to optimize existing traffic to the site. Oftentimes, clients focus their budgets on paid media to push more traffic to the site, but conversion rate remains stagnant. Optimizing the site for existing traffic followed by optimizing traffic from new media efforts is necessary to achieve optimal conversion rates.</li></ul>";
 	var VOCblurb = "<h4>Voice of Customer</h4><p>The website does not have any Voice of Customer (VOC) tools. VOC has several benefits:</p><ul><li>Allows you to understand visitors' perceptions of your website, brand, and competitors via quantitative and qualitative survey questions.</li><li>Gives you insight into visitor obstacles and areas of opportunity for your marketing efforts and your company at large.</li></ul>";
-	var callTrackingBlurb = "<h4>Call Tracking</h4><p>There is an opportunity to provide a call tracking system to evaluate and track calls coming to your call center with metrics including the types of campaigns, ad group, keywords. This will provide insight on the types of calls the call center will be receiving based on campaigns that are running and lead to optimizing performance.</p>"
+	var callTrackingBlurb = "<h4>Call Tracking</h4><p>There is an opportunity to provide a call tracking system to evaluate and track calls coming to your call center with metrics including the types of campaigns, ad group, keywords. This will provide insight on the types of calls the call center will be receiving based on campaigns that are running and lead to optimizing performance.</p>";
 
 	
 	////////////////////////////////////////////////////////////////////////////////
-	//																			  //
+	//																			 																			//
 	//  @@@@@@@@@@  @@@	   @@@  @@@@@@@@@@@  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  //
 	//  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  @@@@@@@@@@  @@@    @@@  @@@@@@@@@@@  //
-	//  @@@    @@@  @@@    @@@      @@@      @@@    @@@  @@@    @@@      @@@	  //
-	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  //
-	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  //
-	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  //
-	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  //
-	//																			  //
+	//  @@@    @@@  @@@    @@@      @@@      @@@    @@@  @@@    @@@      @@@	  	//
+	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  	//
+	//  @@@    @@@  @@@    @@@      @@@      @@@@@@@@@@  @@@    @@@      @@@	  	//
+	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  	//
+	//  @@@@@@@@@@  @@@@@@@@@@      @@@      @@@         @@@@@@@@@@      @@@	  	//
+	//																			  																		//
 	////////////////////////////////////////////////////////////////////////////////
 	
 	document.getElementById("output").innerHTML = "<br>";
@@ -147,6 +141,12 @@ function submitForm() {
 			});
 			output.push("</ul>");
 		};
+	};
+	
+	if (importantTC.length > 0) {
+		importantTC = importantTC.replace("<", "&lt;");
+		importantTC = importantTC.replace(">", "&gt;");
+		output.push("<h4>Other Important Tracking Code:</h4><code>", importantTC, "</code>");
 	};
 
 

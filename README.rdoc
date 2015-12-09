@@ -4,7 +4,7 @@
 
 - *app/assets/views/pages/index.html.erb:* HTML file for the index page where the form lives.
 - *app/assets/stylesheets/stylesheet.scss:* CSS file for styling pages.
-- *app/assets/javascripts/script.hs:* JavaScript file that handles the animation (showing/hiding) for the HTML form.
+- *app/assets/javascripts/script.js:* JavaScript file that handles the animation (showing/hiding) for the HTML form.
 - *app/javascripts/form-handler.js:* JavaScript file that grabs all of the user input and creates the custom report at the bottom of the page.
 - *app/assets/controllers/pages_controller.rb:* Ruby file that renders the HTML pages to the browser.
 
