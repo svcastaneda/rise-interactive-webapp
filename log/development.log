@@ -2938,3 +2938,229 @@ ActionController::RoutingError (No route matches [GET] "/images/icon.png"):
   Rendered /Users/svcastaneda/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/svcastaneda/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/svcastaneda/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (89.9ms)
+
+
+Started GET "/" for ::1 at 2015-12-09 15:23:24 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (132.7ms)
+Completed 200 OK in 302ms (Views: 293.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/form-handler.self-e26a01f08a33ad7b89568d0b7698c15ba3b90dc58d10d34d6d8c4ff30dc91ab6.js?body=1" for ::1 at 2015-12-09 15:23:25 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:26:34 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 113ms (Views: 112.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stylesheet.self-7c80a0eb6210584cb80e13108ba3403bd9f148348fbca5e154c8b05711f1725e.css?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/form-handler.self-ba2695b2eac92d0dabb72649d6a179f67f539647167d8e65ab80a6f44c89fb54.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:26:34 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:28:31 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 50ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/form-handler.self-e26a01f08a33ad7b89568d0b7698c15ba3b90dc58d10d34d6d8c4ff30dc91ab6.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/stylesheet.self-7c80a0eb6210584cb80e13108ba3403bd9f148348fbca5e154c8b05711f1725e.css?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:28:31 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:42:36 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 86ms (Views: 86.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stylesheet.self-7c80a0eb6210584cb80e13108ba3403bd9f148348fbca5e154c8b05711f1725e.css?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/form-handler.self-3207df0703d61096fcf70849ee0c0592f22518379c4f0b8da05b14c1c964f5e0.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:42:36 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:53:55 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 65ms (Views: 64.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stylesheet.self-e64c7c58996440c36275d8965344e6c4b48387383db6833a96fab0acfb0f9a6e.css?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/form-handler.self-3207df0703d61096fcf70849ee0c0592f22518379c4f0b8da05b14c1c964f5e0.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:53:56 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:56:56 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 110ms (Views: 109.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stylesheet.self-e64c7c58996440c36275d8965344e6c4b48387383db6833a96fab0acfb0f9a6e.css?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/form-handler.self-404e0f94487918cc6e3c1aded874410ba9099fa814cfbb650771a324084c56f0.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:56:56 -0600
+
+
+Started GET "/" for ::1 at 2015-12-09 15:59:08 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 91ms (Views: 90.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stylesheet.self-e64c7c58996440c36275d8965344e6c4b48387383db6833a96fab0acfb0f9a6e.css?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/form-handler.self-88febe377f190809ac8b05f8ec363c96485b6aa9b55083c9e7e84d9e5c75e85f.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/script.self-6ffaaa7f8502dde6127b9534502415e3127339aa3e49a36aa673eadd927241d9.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/application.self-b870f4765c2fcbf8cabec8478e3e32aa02ac855d9f609c451d170b187ee785a3.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/urls.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-12-09 15:59:09 -0600
+
+
+Started GET "/assets/Rise_Logo-27f412ce5486a728b3c13b39ab6ebadd2105ae610bbb6829151de7db37d52807.png" for ::1 at 2015-12-09 15:59:09 -0600

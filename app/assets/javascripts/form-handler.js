@@ -29,7 +29,7 @@ function submitForm() {
 	AdobeAccountRecs = $("#AdobeAccountRecs:input").val();
 	efforts = $("[name^=efforts]:checked").val();
 	callTracking = $("[name^=callTracking]:checked").val();
-	importantTC = $("#importantTC:input").val().replace(/\r\n|\r|\n/g,"<br>");
+	importantTC = $("#importantTC:input").val().replace(/\t/g, " ").split("\n");
 	TnOplatform = $("#TnOplatform:input").val();
 	VOCplatform = $("#VOCplatform:input").val();
 	isVOCpossible = $("[name^=isVOCpossible]:checked").val();
@@ -144,9 +144,10 @@ function submitForm() {
 	};
 	
 	if (importantTC.length > 0) {
-		importantTC = importantTC.replace("<", "&lt;");
-		importantTC = importantTC.replace(">", "&gt;");
-		output.push("<h4>Other Important Tracking Code:</h4><code>", importantTC, "</code>");
+		output.push("<h4>Other Important Tracking Code:</h4>");
+		$(importantTC).each (function(x) {
+			(output).push("<xmp>", importantTC[x], "</xmp>");
+		});
 	};
 
 
