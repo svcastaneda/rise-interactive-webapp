@@ -173,8 +173,17 @@ function submitForm() {
 	}
 	else if (efforts == "VOC") {
 		output.push(TnOblurb);
+		output.push("<h4>Voice of Customer</h4><p>The client is currently using ", VOCplatform, " as their VOC platform.</p>");
 	}
-	else if (efforts == "TnO" & isVOCpossible == "yes") {
+	else if (efforts == "TnO") {
+		output.push("<h4>Testing and Optimization</h4><p>The client is currently using ", TnOplatform, " as their TnO platform.</p>");
+	}
+	else if (efforts == "both") {
+		output.push("<h4>Testing and Optimization</h4><p>The client is currently using ", TnOplatform, " as their TnO platform.</p>");
+		output.push("<h4>Voice of Customer</h4><p>The client is currently using ", VOCplatform, " as their VOC platform.</p>");
+	};
+	
+	if (isVOCpossible == "yes" && ($("#isVOCpossible").css("display") != "none")) {
 		output.push(VOCblurb);
 	};
 	
@@ -198,8 +207,8 @@ function submitForm() {
 	$('#output').append(output.join(''));
 
 	if (trackingType == "Google Analytics" | trackingType == "Google Analytics and Adobe Analytics") {
-		if (hasGAaccess == "yes") {
-			GoogleBlock.push("<blockquote>");
+		GoogleBlock.push("<blockquote>");
+		if (hasGAaccess == "yes") {	
 			// GOALS
 			GoogleBlock.push("<h4>Current Goals</h4>");
 			if (GoogleGoals == "yes" & GoogleGoalDescription.length > 0) {
@@ -283,6 +292,7 @@ function submitForm() {
 		GoogleBlock.push("</blockquote>");
 		block.push(GoogleBlock);
 	};
+	
 	if (trackingType == "Adobe Analytics" | trackingType == "Google Analytics and Adobe Analytics") {
 		AdobeBlock.push("<blockquote>");
 		if (hasAdobeaccess == "yes") {	
