@@ -1,15 +1,13 @@
-if no GA and no Adobe Analytics:
-	suggest tag management system
-
 if other web trends:
 	list name in output
-	ask should we recommend GA or Adobe?
+	ask should we recommend another web trends platform? if yes --> why?
 
+if no web trends:
+	should we recommend GA or Adobe or other?
+	GA: benefits of GA
+	AA: benefits of AA
+	other: name of recommended web trends thing
+		
+add cache expiration date
 
-Adobe Analytics:
-- DTM
-	if none:
-		should we recommend GA or Adobe or other?
-		GA: benefits of GA
-		AA: benefits of AA
-		other: name of recommended web trends thing
+Should we recommend a different tag manager? --> add unsure option

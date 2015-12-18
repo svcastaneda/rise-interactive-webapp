@@ -1,20 +1,19 @@
 function submitForm() {
 	var trackingType, tagManager, gaID, aaID, GAType, enhancedEcommerce, notes, efforts, callTracking, importantTC, TnOplatform, VOCplatform, loadTime, status301, status302, status404, status500, accountSetup, goals, goalDescription, goalRecs, filterDescription, filterRecs, eventDescription, eventRecs, websiteURL, accountRecs;
 	
-
-	if ($("[name^=trackingType]:checked").val() == "other") {
+	trackingType = $("[name^=trackingType]:checked").val();
+	if (trackingType == "other") {
 		trackingType = $("[name^=otherTrackingType]:input").val();
-	}
-	else {
-		trackingType = $("[name^=trackingType]:checked").val();
 	};
 
-
-	if ($("[name^=tagManager]:checked").val() == "other") {
+	tagManager = $("[name^=tagManager]:checked").val();
+	if (tagManager == "other") {
 		tagManager = $("[name^=otherTagManager]:input").val();
-	}
-	else {
-		tagManager = $("[name^=tagManager]:checked").val();
+	};
+	
+	recommendedTagManager = $("[name^=recommendedTagManager]:checked").val();
+	if (recommendedTagManager == "other") {
+		recommendedTagManager = $("#recommendOtherTagManagerInput:input").val();
 	};
 
 				
@@ -27,6 +26,8 @@ function submitForm() {
 	AdobeNotes = $("#AdobeNotes:input").val();
 	GoogleAccountRecs = $("#GoogleAccountRecs:input").val();
 	AdobeAccountRecs = $("#AdobeAccountRecs:input").val();
+	recommendTM = $("[name^=recommendTM]:checked").val();
+	whyThisTM = $("#whyThisTM:input").val();
 	efforts = $("[name^=efforts]:checked").val();
 	callTracking = $("[name^=callTracking]:checked").val();
 	importantTC = $("#importantTC:input").val();
@@ -70,11 +71,15 @@ function submitForm() {
 	//	@@   @@ @@ @@  @@  @@  	   @@   @@ 			@@
 	//	@@@@@@@ @@ @@@@@@  @@ 	   @@@@@@@ @@@@@@@
 
-	var gtmBenefitsBlurb = "<h4>Google Tag Manager</h4><p>The website does not show existence of any tag management system. There is an opportunity to implement Universal Analytics through Google Tag Manager.</p><p>There are several benefits of using Google Tag Manager we can take advantage of:</p><ul><li>Allows you to quickly and easily add, delete and update a wide range of analytics, remarketing and 3rd party tags</li><li>Data is dependable since error checking is easy and accurate</li><li>Compatible with mobile apps</li><li>Allows multi-account support and user permissions</li></ul>";
+	var gtmBenefitsBlurb = "<h4>Google Tag Manager</h4><p>We recommend for the website to use Google Tag Manager. There is an opportunity to implement Universal Analytics through Google Tag Manager.</p><p>There are several benefits of using Google Tag Manager we can take advantage of:</p><ul><li>Allows you to quickly and easily add, delete and update a wide range of analytics, remarketing and 3rd party tags</li><li>Data is dependable since error checking is easy and accurate</li><li>Compatible with mobile apps</li><li>Allows multi-account support and user permissions</li></ul>";
+	var dtmBenefitsBlurb = "<h4>Dynamic Tag Manager</h4><p>We recommend for the website to use Dynamic Tag Manager.</p><ul><li>Improve page load time because the site does not have to make as many requests to outside sources</li><li>Easier to implement and reduces deployment time because there is 1 standard tag for all pages</li><li>Support for desktop, tablet, and mobile environments</li><li>Configure and manage all tags in one platform for multiple sites</li><li>DTM is Integrated with the Marketing Cloud - one can easily activate new products in one click.</li><li>Activate new products with one click because DTM is integrated with the Marketing Cloud</li></ul>";
+	// var otherTagManagerBenefitsBlurb = "<h4>" + recommendedTagManager + "</h4>";
 	var uaBenefitsBlurb = "<h4>Universal Analytics</h4><ul><li>The website is running on classic ga.js and should be upgraded to analytics.js</li><li>Upgrading to UA has unique benefits like seamless offline integration, cross device tracking, session timeout handling and using custom dimensions to track relevant data.</li><li>Google is also in the process of deprecating classic ga.js at the end of this year.</li></ul>";
 	var enhancedEcommerceBlurb = "<h4>Enhanced Ecommerce</h4><ul><li>One of the main benefits for an ecommerce website upgrading to Universal Analytics is Enhanced Ecommerce.</li><li>Enhanced Ecommerce allows you to see when customers added items to their shopping cards, started the checkout process, and completed a purchase. You can also use Enhanced Ecommerce to identify segments of customers who are falling out of the shopping funnel.</li></ul>";
-	var TnOblurb = "<h4>Testing and Optimization</h4><p>The website does not have any Conversion Rate Optimization (CRO) tools. CRO has several benefits:</p><ul><li>Understanding the client's site visitors' behavior quantitatively and qualitatively in order to develop hypotheses for the website experience and test these experiences prior to investing the development time and resources in hardcoding.</li><li>Optimize any webpage against the client's KPIs (engagement ecommerce, lead generation).</li><li>It is crucial to optimize existing traffic to the site. Oftentimes, clients focus their budgets on paid media to push more traffic to the site, but conversion rate remains stagnant. Optimizing the site for existing traffic followed by optimizing traffic from new media efforts is necessary to achieve optimal conversion rates.</li></ul>";
-	var VOCblurb = "<h4>Voice of Customer</h4><p>The website does not have any Voice of Customer (VOC) tools. VOC has several benefits:</p><ul><li>Allows you to understand visitors' perceptions of your website, brand, and competitors via quantitative and qualitative survey questions.</li><li>Gives you insight into visitor obstacles and areas of opportunity for your marketing efforts and your company at large.</li></ul>";
+	var TnOblurb = "<h4>Testing and Optimization</h4><p>The website does not have any Conversion Rate Optimization (CRO) tools. CRO has several benefits:</p><ul><li>Understand the client's site visitors' behaviors, motivations, and hesitations by employing quantitative and qualitative methods in order to develop hypotheses for improving the website experience</li><li>Test these hypotheses and split traffic to two or more variations prior to investing the development time and resources in hardcoding experiences</li><li>Optimize any webpage against the client's KPIs (engagement ecommerce, lead generation) and optimizing websites towards personalized experiences for various visitor audiences</li><li>Optimize existing traffic to the site. Oftentimes, clients focus their budgets on paid media to push more traffic to the site, but conversion rate remains stagnant. Optimizing the site for existing traffic followed by optimizing traffic from new media efforts is necessary to achieve optimal conversion rates.</li></ul>"
+	var hasTnOblurb = "<h4>Testing and Optimization</h4><p>The client is currently using " + TnOplatform + " as their T&O platform.</p>";
+	var VOCblurb = "<h4>Voice of Customer</h4><p>The website does not have any Voice of Customer (VOC) tools. VOC has several benefits:</p><ul><li>Is a reliable method to deduce the why behind what is seen in analytics platforms</li></li>Allows the client to understand visitors' perceptions of their website, brand, and competitors via quantitative and qualitative survey questions by serving highly targeted surveys to onsite visitors or via email</li><li>Gives insight into visitor obstacles and areas of opportunity for the client’s website, marketing efforts, and their company at large</li><li>Potentially provides the opportunity to follow up with a site visitor or existing customer if requested by the respondent or if there is feedback that needs to be attended to immediately</li></ul>"
+	var hasVOCblurb = "<h4>Voice of Customer</h4><p>The client is currently using " + VOCplatform + " as their VOC platform.</p>";
 	var callTrackingBlurb = "<h4>Call Tracking</h4><p>There is an opportunity to provide a call tracking system to evaluate and track calls coming to your call center with metrics including the types of campaigns, ad group, keywords. This will provide insight on the types of calls the call center will be receiving based on campaigns that are running and lead to optimizing performance.</p>";
 
 	
@@ -158,8 +163,23 @@ function submitForm() {
 		output.push(uaBenefitsBlurb);		
 	};
 
-	if (tagManager == 'no tag manager' && (trackingType == 'Google Analytics' | trackingType == 'Google Analytics and Adobe Analytics')) {
-		output.push(gtmBenefitsBlurb);
+	if ((tagManager == 'no tag manager' | recommendTM == 'yes') && recommendedTagManager != tagManager) {
+		if (recommendedTagManager == 'GTM') {
+			output.push(gtmBenefitsBlurb);
+		} else if (recommendedTagManager == 'DTM') {
+			output.push(dtmBenefitsBlurb);
+		} else {
+			output.push("<h4>", recommendedTagManager, "</h4>", "<p>We recommend for the website to use ", recommendedTagManager, ".</p>");
+			if (whyThisTM.length > 0) {
+				whyThisTM = whyThisTM.split("\n");
+
+				output.push("<ul>")
+				$(whyThisTM).each( function( index ) {
+					output.push("<li>" + whyThisTM[index] + "</li>");
+				});
+				output.push("</ul>");
+			};
+		};
 	};
 
 	if (enhancedEcommerce == "yes") {
@@ -169,18 +189,13 @@ function submitForm() {
 
 	// TESTING AND OPTIMIZATION and VOC
 	if (efforts == "none") {
-		output.push(TnOblurb, VOCblurb);
-	}
-	else if (efforts == "VOC") {
 		output.push(TnOblurb);
-		output.push("<h4>Voice of Customer</h4><p>The client is currently using ", VOCplatform, " as their VOC platform.</p>");
-	}
-	else if (efforts == "TnO") {
-		output.push("<h4>Testing and Optimization</h4><p>The client is currently using ", TnOplatform, " as their TnO platform.</p>");
-	}
-	else if (efforts == "both") {
-		output.push("<h4>Testing and Optimization</h4><p>The client is currently using ", TnOplatform, " as their TnO platform.</p>");
-		output.push("<h4>Voice of Customer</h4><p>The client is currently using ", VOCplatform, " as their VOC platform.</p>");
+	} else if (efforts == "VOC") {
+		output.push(TnOblurb, hasVOCblurb);
+	} else if (efforts == "TnO") {
+		output.push(hasTnOblurb);
+	} else if (efforts == "both") {
+		output.push(hasTnOblurb, hasVOCblurb);
 	};
 	
 	if (isVOCpossible == "yes" && ($("#isVOCpossible").css("display") != "none")) {
@@ -219,8 +234,7 @@ function submitForm() {
 					GoogleBlock.push("<li>" + GoogleGoalDescription[index] + "</li>");
 				});
 				GoogleBlock.push("</ul>");
-			}
-			else {
+			} else {
 				GoogleBlock.push("<p>No events are set up.</p>");
 			};
 
@@ -245,8 +259,7 @@ function submitForm() {
 						GoogleBlock.push("<li>" + GoogleFilterDescription[index] + "</li>");
 					});
 					GoogleBlock.push("</ul>");
-				}
-				else {
+				} else {
 					GoogleBlock.push("<p>No filters are set up.</p>");
 				};
 			if (GoogleFilterRecs.length > 0) {
@@ -271,8 +284,7 @@ function submitForm() {
 					GoogleBlock.push("<li>" + GoogleEventDescription[index] + "</li>");
 				});
 				GoogleBlock.push("</ul>");
-			}
-			else {
+			} else {
 				GoogleBlock.push("<p>No events are set up.</p>");
 			};
 			if (GoogleEventRecs.length > 0) {
@@ -284,11 +296,10 @@ function submitForm() {
 				});
 				GoogleBlock.push("</ul>");
 			};	
-		}
-
-		else {
+		} else {
 			GoogleBlock.push("<p>We don't have access to the Google Analytics account. We need to have access in order to be able to analyze its structure.</p>");
 		};
+		
 		GoogleBlock.push("</blockquote>");
 		block.push(GoogleBlock);
 	};
@@ -306,8 +317,7 @@ function submitForm() {
 					AdobeBlock.push("<li>" + AdobeGoalDescription[index] + "</li>");
 				});
 				AdobeBlock.push("</ul>");
-			}
-			else {
+			} else {
 				AdobeBlock.push("<p>No events are set up.</p>");
 			};
 
@@ -332,8 +342,7 @@ function submitForm() {
 						AdobeBlock.push("<li>" + AdobeFilterDescription[index] + "</li>");
 					});
 					AdobeBlock.push("</ul>");
-				}
-				else {
+				} else {
 					AdobeBlock.push("<p>No filters are set up.</p>");
 				};
 			if (AdobeFilterRecs.length > 0) {
@@ -358,8 +367,7 @@ function submitForm() {
 					AdobeBlock.push("<li>" + AdobeEventDescription[index] + "</li>");
 				});
 				AdobeBlock.push("</ul>");
-			}
-			else {
+			} else {
 				AdobeBlock.push("<p>No events are set up.</p>");
 			};
 			if (AdobeEventRecs.length > 0) {
@@ -371,11 +379,10 @@ function submitForm() {
 				});
 				AdobeBlock.push("</ul>");
 			};	
-		}
-
-		else {
+		} else {
 			AdobeBlock.push("<p>We don't have access to the Adobe Analytics account. We need to have access in order to be able to analyze its structure.</p>");
 		};
+		
 		AdobeBlock.push("</blockquote>");
 		block.push(AdobeBlock);
 	};
@@ -389,32 +396,28 @@ function submitForm() {
 		if (status301>0) {
 			if (status301 == 1) {
 				statuses.push("<li>1 page had 301 as its status code. This means that there is 1 page that has been assigned a new permanent URL. The browser tries to load the page again with an alternate URL. This slashes the tracking code, which means that Google Analytics is no longer able to track the session.</li>");
-			}
-			else {
+			} else {
 				statuses.push("<li>" + status301 + " pages had 301 as their status code. This means that there are " + status301 + " pages that have been moved to a new permanent URL. The browser tries to load the page again with an alternate URL. This slashes the tracking code, which means that Google Analytics is no longer able to track the session.</li>");
 			};
 		};
 		if (status302>0) {
 			if (status302 == 1) {
 				statuses.push("<li>1 page had 302 as its status code. This means that there is 1 page with a temporary page redirect. This slashes the tracking code, which means that Google Analytics loses session tracking.</li>");
-			}
-			else{
+			} else {
 				statuses.push("<li>" + status302 + " pages had 302 as their status code. This means that there are " + status302 + " pages with temporary page redirects. This slashes the tracking code, which means that Google Analytics loses session tracking.</li>");
 			};
 		};
 		if (status404>0) {
 			if (status404 == 1) {
 				statuses.push("<li>1 page had 404 as its status code. This means that there is 1 page that was not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
-			}
-			else {
+			} else {
 				statuses.push("<li>" + status404 + " pages had 404 as their status code. This means that there are " + status404 + "  pages that were not found. This slashes the tracking code. Plus, it is not good to have nonexistent pages in terms of provided good visitor experience.</li>");
 			};
 		};
 		if (status500>0) {
 			if (status500 == 1) {
 				statuses.push("<li>1 page had 500 as its status code. This means that there is 1 page that caused an internal server error.</li>");
-			}
-			else {
+			} else {
 				statuses.push("<li>" + status500 + " pages had 500 as their status code. This means that there are " + status500 + " pages that caused internal server errors.</li>");
 			};
 		};

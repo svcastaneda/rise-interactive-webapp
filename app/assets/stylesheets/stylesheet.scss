@@ -14,11 +14,6 @@ body {
 	display: block;
 }
 
-#hasAccess p {
-	/*margin-top: 2%;*/
-	margin-bottom: 0%;
-}
-
 .websiteURL {
 	display: inline;
 }
@@ -27,7 +22,6 @@ form {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1%;
-	/*width: -webkit-fit-content;*/
 	width: 70%;
 	max-width: 700px;
 	font-size: 1em;
@@ -82,7 +76,7 @@ button[type='button'] {
 	margin-right: auto;
 	width: 25%;
 	padding: 1%;
-	-webkit-border-radius: 15px;
+	border-radius: 15px;
 	color: white;
 }
 

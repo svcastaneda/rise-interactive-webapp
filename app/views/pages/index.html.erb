@@ -1,7 +1,7 @@
 <div id="main">
 	<header>
 		<a href="javascript:window.location.reload();">
-			<%= image_tag("Rise_Logo.png", :alt => "Rise Interactive logo") %>
+			<%= image_tag("Rise_Logo.png", :alt => "Rise Interactive logo", :width => 300, :height => 101) %>
 		</a>
 		<h1>Analytics Site Audit Analysis Form</h1>
 	</header>
@@ -168,6 +168,25 @@
 			<span class="DTM"><input type="radio" name="tagManager" value="DTM" id="DTM" required><label for="DTM">DTM</label><br></span>
 			<input type="radio" name="tagManager" value="no tag manager" id="noTagManager" required><label for="noTagManager">None</label><br>
 			<input type="radio" name="tagManager" value="other" id="otherTagManager" required><label for="otherTagManager">Other </label><input type="text" name="otherTagManager" id="otherTagManagerInput"><br>
+			
+			<blockquote>
+				<span class="hasTagManager">
+					<p><label>Should we recommend a different tag manager?</label></p>
+					<input type="radio" name="recommendTM" value="yes" id="recommendYes"><label for="recommendYes">yes</label><br>
+					<input type="radio" name="recommendTM" value="no" id="recommendNo"><label for="recommendNo">no</label><br>
+				</span>
+			
+				<span class="recommendedTagManager">
+					<p><label>Which tag manager should we recommend?</label></p>
+					<input type="radio" name="recommendedTagManager" value="GTM" id="recommendGTM"><label for="recommendGTM">GTM</label><br>
+					<input type="radio" name="recommendedTagManager" value="DTM" id="recommendDTM"><label for="recommendDTM">DTM</label><br>
+					<input type="radio" name="recommendedTagManager" value="other" id="recommendOtherTagManager"><label for="recommendOtherTagManager">Other </label><input type="text" name="recommendOtherTagManager" id="recommendOtherTagManagerInput"><br>
+				</span>
+				<div class="whyThisTM">
+					<p>Why this tag manager?</p>
+					<textarea id="whyThisTM"></textarea>
+				</div>
+			</blockquote>
 
 			<hr>
 		</div>
